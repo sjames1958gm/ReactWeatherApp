@@ -7,7 +7,7 @@ console.log("Starting server on: " + PORT);
 app.use(function(req, res, next) {
   console.log("request");
   next();
-}
+});
 
 app.use(function(req, res, next) {
   console.log("here: " + JSON.stringify(req.headers));
