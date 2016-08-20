@@ -13,13 +13,12 @@ app.use(function(req, res, next) {
 
 app.use(function(req, res, next) {
   console.log("here: " + JSON.stringify(req.headers));
-  if (!req.headers['x-forwarded-proto'] || 
-      req.headers['x-forwarded-proto'] === 'http') {
-    next();
-  }
-  else {
+  if (req.headers['x-forwarded-proto'] === 'https') {
     console.log("redirecting to: " + 'http://' + req.hostname + req.url);
     res.redirect('http://' + req.hostname + req.url);
+  }
+  else {
+    next();
   }
 });
 
