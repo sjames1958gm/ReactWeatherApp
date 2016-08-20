@@ -2,6 +2,7 @@ var express = require("express");
 
 var app = express();
 const PORT = process.env.PORT | 8080;
+console.log("Starting server on: " + PORT);
 
 app.use(function(req, res, next) {
   console.log("here: " + JSON.stringify(req.headers));
