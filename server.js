@@ -1,6 +1,9 @@
 var express = require("express");
 
 var app = express();
+
+app.set('port', (process.env.PORT || 5000));
+
 const PORT = process.env.PORT | 8080;
 console.log("Starting server on: " + PORT);
 
@@ -21,9 +24,9 @@ app.use(function(req, res, next) {
   }
 });
 
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
-app.listen(PORT, function() {
-    console.log("server started on " + PORT);
+app.listen(app.get('port'), function() {
+    console.log("server started on " + app.get('port'));
 });
 
