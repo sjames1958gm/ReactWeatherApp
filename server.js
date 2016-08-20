@@ -5,6 +5,11 @@ const PORT = process.env.PORT | 8080;
 console.log("Starting server on: " + PORT);
 
 app.use(function(req, res, next) {
+  console.log("request");
+  next();
+}
+
+app.use(function(req, res, next) {
   console.log("here: " + JSON.stringify(req.headers));
   if (!req.headers['x-forwarded-proto'] || 
       req.headers['x-forwarded-proto'] === 'http') {
