@@ -2,10 +2,9 @@ var express = require("express");
 
 var app = express();
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 8080));
 
-const PORT = process.env.PORT | 8080;
-console.log("Starting server on: " + PORT);
+console.log("Starting server on: " + app.get('port'));
 
 app.use(function(req, res, next) {
   console.log("request");
