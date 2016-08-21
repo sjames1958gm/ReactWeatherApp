@@ -14,7 +14,10 @@ module.exports = {
         throw new Error(res.data.message);
       }
       else {
-        return res.data.main.temp;
+        return {
+          city: res.data.name,
+          temp: res.data.main.temp
+        };
       }
     }, function(res) {
       throw new Error(res.data.message);

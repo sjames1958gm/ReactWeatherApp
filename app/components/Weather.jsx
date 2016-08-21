@@ -13,8 +13,9 @@ var Weather = React.createClass({
     this.setState({isLoading: true});
 
     openWeatherMap.getTemp(location)
-    .then((temperature) => {
-      this.setState({location, temperature, isLoading: false});
+    .then(({city, temp}) => {
+      debugger;
+      this.setState({location: city, temperature: temp, isLoading: false});
     }, function(errorMessage) {
       alert(errorMessage);
       this.setState({isLoading: false});
